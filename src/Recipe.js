@@ -28,6 +28,9 @@ class Recipe extends Component {
           </ul>
           <h4>Instructions:</h4>
           <p>{instructions}</p>
+          <button>
+            Delete
+          </button>
         </div>
       </div>
     )
