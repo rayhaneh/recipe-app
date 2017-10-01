@@ -4,30 +4,14 @@ import Recipe from './Recipe'
 import './RecipeList.css'
 
 class RecipeList extends Component {
-  static defaultProps = {
-    recipes: [
-      {
-        img          : 'spagetti.jpeg',
-        title        : 'Pasta',
-        ingredients  : ['flour', 'water'],
-        instructions : 'Mix ingredients.'
-      },
-      {
-        img          : 'spagetti.jpeg',
-        title        : 'Pasta',
-        ingredients  : ['flour', 'water'],
-        instructions : 'Mix ingredients.'
-      }
-    ]
-  }
 
   static propType = {
     recipes: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
   render () {
-    const recipes = this.props.recipes.map((recipe, index) => (
-      <Recipe key={index} {...recipe}/>
+    const recipes = this.props.recipes.map(recipe => (
+      <Recipe key={recipe.id} {...recipe}/>
     ))
     return (
       <div className={'recipe-list'}>
