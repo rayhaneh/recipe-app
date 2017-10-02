@@ -93,8 +93,9 @@ class RecipeInput extends Component {
               />
             </label>
           </div>
-          <div className='recipe-form-line'>
+          <div className='recipe-form-twoline'>
             <label> Instructions:
+            </label>
               <textarea
                 name='instructions'
                 value={instructions}
@@ -103,7 +104,6 @@ class RecipeInput extends Component {
                 autoComplete='off'
                 onChange={this.handleChange}
               />
-            </label>
           </div>
           {inputs}
           <button
