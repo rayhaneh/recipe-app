@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
 import RecipeList from './RecipeList'
 import Navbar from './Navbar'
 import RecipeInput from './RecipeInput'
@@ -29,6 +30,7 @@ class RecipeApp extends Component {
     }
 
     this.handleSave = this.handleSave.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleSave(recipe) {
@@ -42,6 +44,11 @@ class RecipeApp extends Component {
     })
   }
 
+  handleDelete(id) {
+    const recipes = _.reject([...this.state.recipes], (recipe) => recipe.id === id)
+    this.setState({recipes})
+  }
+
   render() {
     const {showForm} = this.state
     return (
@@ -53,7 +60,10 @@ class RecipeApp extends Component {
             onClose={() => this.setState({showForm: false})}
           />
           : null}
-        <RecipeList recipes={this.state.recipes}/>
+        <RecipeList
+          recipes={this.state.recipes}
+          onDelete={this.handleDelete}
+        />
       </div>
     )
   }

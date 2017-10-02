@@ -11,9 +11,9 @@ class Recipe extends Component {
   }
 
   render () {
-    const {title, img, instructions} = this.props
-    const ingredients = this.props.ingredients.map((ing, i) => (
-      <li key={i}>{ing}</li>
+    const {id, title, img, instructions, onDelete} = this.props
+    const ingredients = this.props.ingredients.map((ing, index) => (
+      <li key={index}>{ing}</li>
     ))
     return (
       <div className='recipe-card'>
@@ -28,7 +28,7 @@ class Recipe extends Component {
           </ul>
           <h4>Instructions:</h4>
           <p>{instructions}</p>
-          <button>
+          <button onClick={() => onDelete(id)}>
             Delete
           </button>
         </div>
