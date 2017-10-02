@@ -4,6 +4,7 @@ import './Recipe.css'
 
 class Recipe extends Component {
   static PropTypes = {
+    id: PropTypes.number.isRequired,
     img: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     instructions: PropTypes.string.isRequired,
